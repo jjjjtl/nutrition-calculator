@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>藕粉营养计算器</title>
+  <style>
+    /* 简单样式适配手机 */
+    body { font-family: Arial; text-align: center; padding: 20px; }
+    input { width: 80%; margin: 10px; padding: 8px; }
+    button { background: #4CAF50; color: white; padding: 10px 20px; border: none; border-radius: 5px; }
+  </style>
+</head>
+<body>
+  <h2>藕粉营养计算器</h2>
+  <input type="number" id="weight" placeholder="体重(kg)">
+  <input type="number" id="height" placeholder="身高(cm)">
+  <button onclick="calculate()">立即计算</button>
+  <p id="result"></p >
+
+  <script>
+    function calculate() {
+      // ✅ 修改这里！替换为你的藕粉实际含量（示例值）
+      const calciumPerServing = 300;  // 单份钙含量（毫克）
+      const fiberPerServing = 5;      // 单份膳食纤维含量（克）
+
+      // 每日推荐摄入量（固定值）
+      const dailyCalcium = 1000;  // 钙：1000mg/天
+      const dailyFiber = 25;      // 膳食纤维：25g/天
+
+      // 计算百分比
+      const calciumPercent = (calciumPerServing / dailyCalcium * 100).toFixed(1);
+      const fiberPercent = (fiberPerServing / dailyFiber * 100).toFixed(1);
+
+      // 显示结果
+      document.getElementById("result").innerHTML = 
+        `单份藕粉提供：<br>
+        钙：${calciumPercent}% 每日所需<br>
+        膳食纤维：${fiberPercent}% 每日所需`;
+    }
+  </script>
+</body>
+</html>
